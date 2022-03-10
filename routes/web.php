@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminFrontendController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,14 +44,15 @@ Route::prefix('admin')->group(function(){
 // Route::get('/category/delete/{id}',[CategoryController::class,'delete'])->name('delete');
 Route::get('/category',[TaskController::class,'index'])->name('category.index');
 
-Route::post('/category',[TaskController::class,'insert']);
+Route::post('/add/category',[TaskController::class,'insert']);
 Route::get('/category/edit/{id}',[TaskController::class,'edit'])->name('edit');
 Route::put('/category/edit/{id}',[TaskController::class,'update'])->name('update');
 Route::get('/category/delete/{id}',[TaskController::class,'delete'])->name('delete');
 
-Route::get('/product',[ProductController::class,'index'])->name('category.index');
+Route::get('/product',[ProductController::class, 'index'])->name('product.index');
+Route::post('/product',[ProductController::class, 'insert']);
+Route::get('/product/edit/{id}',[ProductController::class, 'edit'])->name('pro.edit');
+Route::put('/product/edit/{id}',[ProductController::class, 'update']);
+Route::get('/product/delete/{id}',[ProductController::class, 'delete']);
 
-Route::post('/product',[ProductController::class,'insert']);
-Route::get('/product/edit/{id}',[ProductController::class,'edit'])->name('edit');
-Route::put('/product/edit/{id}',[ProductController::class,'update'])->name('update');
-Route::get('/product/delete/{id}',[ProductController::class,'delete'])->name('delete');
+Route::get('/frontend', [FrontendController::class, 'index']);

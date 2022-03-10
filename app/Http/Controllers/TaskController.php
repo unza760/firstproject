@@ -9,7 +9,7 @@ class TaskController extends Controller
     public function index()
     {
         $category = Task::all();
-         return view('category.index', ['category'=>$category]);
+         return view('category.managecategory', ['category'=>$category]);
    
      
     }
@@ -20,7 +20,7 @@ class TaskController extends Controller
             $category->description = $request->description;
            $category->save();  
         //    return view('Task.index', ['Task'=>$Task]);
-        return redirect(route('category.index'))->with('status', 'Task Added !!');
+        return redirect(route('category.insert'))->with('status', 'Task Added !!');
     }
   
 public function edit($id)

@@ -18,6 +18,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('price');
             $table->binary('image');
+            $table->integer('category_id');
+            $table->binary('gallery');
+            $table->integer('discount_percentage');
+            $table->string('meta_title');
+            $table->string('meta_description');
+            $table->binary('meta_image');
             $table->timestamps();
         });
     }
